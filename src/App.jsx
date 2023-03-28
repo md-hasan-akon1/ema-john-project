@@ -7,8 +7,8 @@ function App() {
     <div className="header">
       <Header></Header>
       <Products></Products>
-     
-         </div>
+
+    </div>
   )
 }
 

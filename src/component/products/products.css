@@ -1,12 +1,13 @@
-.product-container{
+.product-container {
     display: grid;
     grid-template-columns: 4fr 1fr;
     gap: 10px;
 
 }
-.product-contain{
+
+.product-contain {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-  
+
 }

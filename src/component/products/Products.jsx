@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from 'react';
+import { AddToDb } from '../AddToDb/AddToDb';
+
+import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import "./products.css"
 
 const Products = () => {
     const [products, setProducts] = useState([])
-    const [cart,setCart]=useState([])
+    const [cart, setCart] = useState([])
     useEffect(() => {
-        fetch("https://raw.githubusercontent.com/ProgrammingHero1/ema-john-resources/main/fakeData/products.json")
+        fetch("../../../public/data.json")
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
-    const AddToCartBtn=(product)=>{
-        const newCart=[...cart,product];
+    const AddToCartBtn = (product) => {
+        const newCart = [...cart, product];
         setCart(newCart);
+        AddToDb(product.id)
     }
     return (
         <div className='product-container'>
@@ -25,10 +29,10 @@ const Products = () => {
                     ></Product>
                 )}
             </div>
-
             <div className='mx-auto'>
-                <h4>order summery</h4>
-                <p>selected items:{cart.length} </p>
+                <Cart
+                    cart={cart}
+                ></Cart>
             </div>
         </div>
     );
